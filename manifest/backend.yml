@@ -1,0 +1,105 @@
+name: aConnect👥
+entities:
+  QuestionSet:
+    properties:
+      - {
+          name: name,
+          type: string,
+          validation: { required: true }
+        }
+    belongsToMany:
+      - Question
+
+  Question:
+    properties:
+      - {
+          name: question,
+          type: string,
+          validation: { required: true}
+        }
+      - { name: answers, 
+          type: text,
+          validation: { required: true, isJSON: true }
+        }
+
+  Member:
+    properties:
+      - {
+          name: name,
+          type: string,
+          validation: { required: true }
+        }
+      - {
+          name: social Contact,
+          type: string,
+          validation: { required: false }
+        }
+    belongsTo:
+      - Lobby
+
+  Match:
+    belongsToMany:
+      - Member
+    belongsTo:
+      - Lobby
+  
+  Lobby:
+    mainProp: name
+    properties:
+      - {
+          name: name,
+          type: string,
+          validation: { required: true }
+        }
+      - {
+          name: location,
+          type: location,
+          validation: { required: true }
+        }
+      - { 
+          name: match Type, 
+          type: choice, 
+          options: { values: [romantic, friendly] },
+          validation: { required: true }
+        }
+      - { 
+          name: event Type,
+          type: choice, 
+          options: { values: [couple, group] },
+          validation: { required: true }
+        }
+      - {
+          name: max Members,
+          type: number,
+          validation: { required: true, min: 2 }
+        }
+      - {
+          name: description,
+          type: text
+        }
+      - {
+          name: creation Date,
+          type: timestamp,
+          validation: { required: true }
+        }
+      - {
+          name: pre Event Date,
+          type: timestamp,
+          validation: { required: true }
+        }
+      - {
+          name: Event Date,
+          type: timestamp,
+          validation: { required: true }
+        }
+      - {
+          name: post Event Date,
+          type: timestamp,
+          validation: { required: true }
+        }
+      - {
+          name: invite Link,
+          type: link
+        }
+    belongsTo:
+        - QuestionSet
