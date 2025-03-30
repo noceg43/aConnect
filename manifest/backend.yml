@@ -17,9 +17,15 @@ entities:
           type: string,
           validation: { required: true}
         }
-      - { name: answers, 
-          type: text,
-          validation: { required: true, isJSON: true }
+    belongsToMany:
+      - Answer
+
+  Answer:
+    properties:
+      - {
+          name: answer,
+          type: string,
+          validation: { required: true }
         }
 
   Member:
@@ -36,6 +42,12 @@ entities:
         }
     belongsTo:
       - Lobby
+
+  MemberAnswer:
+    belongsTo:
+      - Member
+      - Question
+      - Answer
 
   Match:
     belongsToMany:
