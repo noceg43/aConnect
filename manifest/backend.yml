@@ -30,7 +30,7 @@ entities:
           validation: { required: true }
         }
       - {
-          name: social Contact,
+          name: socialContact,
           type: string,
           validation: { required: false }
         }
@@ -57,19 +57,19 @@ entities:
           validation: { required: true }
         }
       - { 
-          name: match Type, 
+          name: matchType, 
           type: choice, 
           options: { values: [romantic, friendly] },
           validation: { required: true }
         }
       - { 
-          name: event Type,
+          name: eventType,
           type: choice, 
           options: { values: [couple, group] },
           validation: { required: true }
         }
       - {
-          name: max Members,
+          name: maxMembers,
           type: number,
           validation: { required: true, min: 2 }
         }
@@ -78,27 +78,27 @@ entities:
           type: text
         }
       - {
-          name: creation Date,
+          name: creationDate,
           type: timestamp,
           validation: { required: true }
         }
       - {
-          name: pre Event Date,
+          name: preEventDate,
           type: timestamp,
           validation: { required: true }
         }
       - {
-          name: Event Date,
+          name: eventDate,
           type: timestamp,
           validation: { required: true }
         }
       - {
-          name: post Event Date,
+          name: postEventDate,
           type: timestamp,
           validation: { required: true }
         }
       - {
-          name: invite Link,
+          name: inviteLink,
           type: link
         }
     belongsTo:
