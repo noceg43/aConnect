@@ -9,6 +9,16 @@ entities:
         }
     belongsToMany:
       - Question
+    policies:
+      read:
+        - access: admin
+      create:
+        - access: admin
+      update:
+        - access: admin
+      delete:
+        - access: admin
+
 
   Question:
     properties:
@@ -19,6 +29,16 @@ entities:
         }
     belongsToMany:
       - Answer
+    policies:
+      read:
+        - access: admin
+      create:
+        - access: admin
+      update:
+        - access: admin
+      delete:
+        - access: admin
+
 
   Answer:
     properties:
@@ -27,6 +47,16 @@ entities:
           type: string,
           validation: { required: true }
         }
+    policies:
+      read:
+        - access: admin
+      create:
+        - access: admin
+      update:
+        - access: admin
+      delete:
+        - access: admin
+
 
   Member:
     properties:
@@ -42,18 +72,48 @@ entities:
         }
     belongsTo:
       - Lobby
+    policies:
+      read:
+        - access: admin
+      create:
+        - access: admin
+      update:
+        - access: admin
+      delete:
+        - access: admin
+
 
   MemberAnswer:
     belongsTo:
       - Member
       - Question
       - Answer
+    policies:
+      read:
+        - access: admin
+      create:
+        - access: admin
+      update:
+        - access: admin
+      delete:
+        - access: admin
+
 
   Match:
     belongsToMany:
       - Member
     belongsTo:
       - Lobby
+    policies:
+      read:
+        - access: admin
+      create:
+        - access: admin
+      update:
+        - access: admin
+      delete:
+        - access: admin
+
   
   Lobby:
     mainProp: name
@@ -113,5 +173,35 @@ entities:
           name: inviteLink,
           type: link
         }
+    policies:
+      read:
+        - access: admin
+      create:
+        - access: admin
+      update:
+        - access: admin
+      delete:
+        - access: admin
+
+
+  Feedback:
+    properties:
+      - {
+        name: rating,
+        type: number,
+        validation: { required: true, min: 1, max: 5 }
+        }
     belongsTo:
-        - QuestionSet
+      - Lobby
+      - Member
+    belongsToMany:
+      - Member
+    policies:
+      read:
+        - access: admin
+      create:
+        - access: admin
+      update:
+        - access: admin
+      delete:
+        - access: admin
