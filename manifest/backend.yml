@@ -171,8 +171,11 @@ entities:
         }
       - {
           name: inviteLink,
-          type: link
+          type: link,
+          validation: { required: true }
         }
+    belongsToMany:
+      - QuestionSet
     policies:
       read:
         - access: admin
