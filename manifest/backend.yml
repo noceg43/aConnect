@@ -8,7 +8,11 @@ entities:
           validation: { required: true }
         }
     belongsToMany:
-      - Question
+      - {
+          entity: Question,
+          eager: true
+        }
+      
     policies:
       read:
         - access: admin
@@ -28,7 +32,10 @@ entities:
           validation: { required: true}
         }
     belongsToMany:
-      - Answer
+      - {
+          entity: Answer,
+          eager: true
+        }
     policies:
       read:
         - access: admin
@@ -71,7 +78,10 @@ entities:
           validation: { required: false }
         }
     belongsTo:
-      - Lobby
+      - {
+          entity: Lobby,
+          eager: true
+        }
     policies:
       read:
         - access: admin
@@ -85,9 +95,18 @@ entities:
 
   MemberAnswer:
     belongsTo:
-      - Member
-      - Question
-      - Answer
+      - {
+          entity: Member,
+          eager: true
+        }
+      - {
+        entity: Question,
+        eager: true
+        }
+      - {
+        entity: Answer,
+        eager: true
+        }
     policies:
       read:
         - access: admin
@@ -101,9 +120,15 @@ entities:
 
   Match:
     belongsToMany:
-      - Member
+      - {
+          entity: Member,
+          eager: true
+        }
     belongsTo:
-      - Lobby
+      - {
+          entity: Lobby,
+          eager: true
+        }
     policies:
       read:
         - access: admin
@@ -174,8 +199,11 @@ entities:
           type: link,
           validation: { required: true }
         }
-    belongsToMany:
-      - QuestionSet
+    belongsTo:
+      - {
+        entity: QuestionSet,
+        eager: true
+        }
     policies:
       read:
         - access: admin
@@ -195,10 +223,19 @@ entities:
         validation: { required: true, min: 1, max: 5 }
         }
     belongsTo:
-      - Lobby
-      - Member
+      - {
+        entity: Lobby,
+        eager: true
+        }
+      - {
+        entity: Member,
+        eager: true
+        }
     belongsToMany:
-      - Member
+      - {
+        entity: Member,
+        eager: true
+        }
     policies:
       read:
         - access: admin
