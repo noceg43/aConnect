@@ -68,6 +68,11 @@ entities:
   Member:
     properties:
       - {
+        name: userId,
+        type: number,
+        validation: { required: true }
+        }
+      - {
           name: name,
           type: string,
           validation: { required: true }
@@ -77,10 +82,9 @@ entities:
           type: string,
           validation: { required: false }
         }
-    belongsTo:
+    belongsToMany:
       - {
-          entity: Lobby,
-          eager: true
+          entity: Lobby
         }
     policies:
       read:
