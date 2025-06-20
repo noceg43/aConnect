@@ -129,15 +129,9 @@ entities:
 
   Match:
     belongsToMany:
-      - {
-          entity: Member,
-          eager: true
-        }
+      - Member
     belongsTo:
-      - {
-          entity: Lobby,
-          eager: true
-        }
+      - Lobby
     policies:
       read:
         - access: admin
