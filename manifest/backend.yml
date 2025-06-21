@@ -36,6 +36,10 @@ entities:
           entity: Answer,
           eager: true
         }
+      - {
+          entity: MemberAnswer,
+          eager: false
+        }
     policies:
       read:
         - access: admin
