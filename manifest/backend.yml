@@ -132,6 +132,11 @@ entities:
 
 
   Match:
+    properties:
+      - {
+          name: score,
+          type: number,
+        }
     belongsToMany:
       - Member
     belongsTo:
