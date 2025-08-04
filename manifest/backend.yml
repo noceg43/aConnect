@@ -137,6 +137,10 @@ entities:
           name: score,
           type: number,
         }
+      - {
+          name: uniqueId,
+          type: string,
+        }
     belongsToMany:
       - Member
     belongsTo:
